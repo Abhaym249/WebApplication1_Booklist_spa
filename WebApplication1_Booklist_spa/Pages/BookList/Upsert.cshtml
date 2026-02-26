@@ -1,0 +1,7 @@
+﻿@page
+@model WebApplication1_Booklist_spa.Pages.BookList.UpsertModel
+@{
+	var title = Model.Book.Id != 0 ? "Edit book" : "New Book";
+	var SaveUpdate = Model.Book.Id != 0 ? "Update" : "Save";
+}
+<h2 class="text-primary text-center">@title</h2>

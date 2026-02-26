@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Antiforgery;
 
 namespace WebApplication1_Booklist_spa.Models
 {
-    public class BookList
+    public class Book
     {
         public int Id { get; set; }
         [Required]

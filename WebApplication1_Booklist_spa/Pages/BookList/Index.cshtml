@@ -2,3 +2,52 @@
 @model WebApplication1_Booklist_spa.Pages.BookList.IndexModel
 @{
 }
+<div class="row">
+	<div class="col-9">
+		<h2 class="text-primary text-center"> Book List</h2>
+	</div>
+	<div class="col-3">
+		<a class="btn btn-info form-control" asp-page="Upsert">Add New Book</a>
+	</div>
+	@if(Model.Books.Count() > 0)
+	{
+		<div class="container rounded-border p-2 m-2">
+			<table class="table table-bordered table-striped table-active">
+				<thead>
+					<tr>
+						<th>Title</th>
+						<th>Author</th>
+						<th>Description</th>
+						<th>ISBN</th>
+						<th>Price</th>
+						<th>Actions</th>
+					</tr>
+				</thead>
+				<tbody>
+					<form method="post">
+						@foreach (var book in Model.Books)
+						{
+							<tr>
+								<td>@book.Title</td>
+								<td>@book.Author</td>
+								<td>@book.Description</td>
+								<td>@book.ISBN</td>
+								<td>@book.Price</td>
+								<td>
+									<a class="btn btn-primary" asp-page="Upsert" asp-route-id="@book.Id">Edit</a>
+									<button type="submit" class="btn btn-danger" name="deleteId" value="@book.Id">Delete</button>
+								</td>
+							</tr>
+						}
+					</form>
+				</tbody>
+			</table>
+		</div>
+
+	}
+	else
+	{
+		<p class="text-danger"> No Data Found</p>
+	}
+
+</div>

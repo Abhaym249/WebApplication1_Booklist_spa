@@ -9,6 +9,6 @@ namespace WebApplication1_Booklist_spa.Data
         {
 
         }
-        public DbSet<BookList> BookLists { get; set; }
+        public DbSet<Book> Books { get; set; }
     }
 }
