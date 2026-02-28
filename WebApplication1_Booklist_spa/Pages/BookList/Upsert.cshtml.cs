@@ -15,7 +15,7 @@ namespace WebApplication1_Booklist_spa.Pages.BookList
         }
         [BindProperty]
         public Book Book { get; set; }
-        public async Task<ActionResult>OnGet(int? id)
+        public async Task<ActionResult> OnGet(int? id)
         {
             Book = new Book();
             if (id == null) return Page();//create
@@ -24,5 +24,23 @@ namespace WebApplication1_Booklist_spa.Pages.BookList
             if (Book == null) return NotFound();
             return Page();
         }
+        public async Task<ActionResult> OnPost()
+        {
+            if (Book == null) return NotFound();
+            if (!ModelState.IsValid) return NotFound();
+            if (Book.Id == 0)
+            
+                //create
+                await _context.Books.AddAsync(Book);
+            
+            else
+            
+                //edit
+                _context.Books.Update(Book);
+               await _context.SaveChangesAsync();
+
+            return RedirectToPage("Index");
+        }
+
     }
 }
