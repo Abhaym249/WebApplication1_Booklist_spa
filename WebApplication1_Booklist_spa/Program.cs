@@ -7,7 +7,7 @@ builder.Services.AddDbContext<ApplicationDbContext>
     (options =>options.UseSqlServer(cs));
 // Add services to the container.
 builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
-
+builder.Services.AddControllers();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -27,5 +27,5 @@ app.UseAuthorization();
 app.MapStaticAssets();
 app.MapRazorPages()
    .WithStaticAssets();
-
+app.MapControllers();
 app.Run();

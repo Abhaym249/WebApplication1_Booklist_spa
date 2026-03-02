@@ -41,6 +41,5 @@ namespace WebApplication1_Booklist_spa.Pages.BookList
 
             return RedirectToPage("Index");
         }
-
     }
 }

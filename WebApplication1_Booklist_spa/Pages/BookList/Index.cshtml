@@ -7,7 +7,7 @@
 		<h2 class="text-primary text-center"> Book List</h2>
 	</div>
 	<div class="col-3">
-		<a class="btn btn-info form-control" asp-page="Upsert">Add New Book</a>
+		<a class="btn btn-info form-control" asp-page="Upsert"><i class="fas fa-plus"></i>&nbsp Add New Book</a>
 	</div>
 	@if(Model.Books.Count() > 0)
 	{
@@ -35,7 +35,7 @@
 							<td>
 								<a class="btn btn-primary"
 								   asp-page="Upsert"
-								   asp-route-id="@book.Id">Edit</a>
+								   asp-route-id="@book.Id"><i class="fas fa-edit"></i></a>
 
 								<form method="post"
 									  asp-page-handler="Delete"
@@ -44,7 +44,7 @@
 									<button type="submit"
 											class="btn btn-danger"
 											onclick="return confirm('Want to delete data?')">
-										Delete
+										<i class="fas fa-trash-alt"></i>
 									</button>
 								</form>
 							</td>
@@ -60,4 +60,19 @@
 		<p class="text-danger"> No Data Found</p>
 	}
 
+</div>
+
+<h2 class="text-danger text-center">OR</h2>
+<div class="container rounded border p-2 m-2">
+	<table class="table table-bordered table-striped table-active">
+		<thead>
+			<tr>
+				<th>Title</th>
+				<th>Author</th>
+				<th>Description</th>
+				<th>ISBN</th>
+				<th>Price</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
 </div>
