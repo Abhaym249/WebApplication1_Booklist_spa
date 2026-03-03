@@ -33,21 +33,27 @@
 							<td>@book.ISBN</td>
 							<td>@book.Price</td>
 							<td>
-								<a class="btn btn-primary"
-								   asp-page="Upsert"
-								   asp-route-id="@book.Id"><i class="fas fa-edit"></i></a>
+								<td>
+									<a class="btn btn-info"
+										   asp-page="Upsert"
+										   asp-route-id="@book.Id">
+										<i class="fas fa-edit"></i>
+									</a>
 
-								<form method="post"
-									  asp-page-handler="Delete"
-									  style="display:inline;">
-									<input type="hidden" name="id" value="@book.Id" />
-									<button type="submit"
-											class="btn btn-danger"
-											onclick="return confirm('Want to delete data?')">
-										<i class="fas fa-trash-alt"></i>
-									</button>
-								</form>
-							</td>
+									<form method="post"
+										  asp-page-handler="Delete"
+										  style="display:inline">
+										<input type="hidden"
+											   name="id"
+											   value="@book.Id" />
+
+										<button type="submit"
+												class="btn btn-danger"
+												onclick="return confirm('Want to Delete data ?')">
+											<i class="fas fa-trash-alt"></i>
+										</button>
+									</form>
+								</td>
 						</tr>
 					}
 				</tbody>
@@ -64,7 +70,7 @@
 
 <h2 class="text-danger text-center">OR</h2>
 <div class="container rounded border p-2 m-2">
-	<table class="table table-bordered table-striped table-active">
+	<table id="tblData" class="table table-bordered table-striped table-active">
 		<thead>
 			<tr>
 				<th>Title</th>
@@ -75,4 +81,9 @@
 				<th>Actions</th>
 			</tr>
 		</thead>
+	</table>
 </div>
+@section Scripts
+{
+	<script src="~/js/Book.js"></script>
+	}
